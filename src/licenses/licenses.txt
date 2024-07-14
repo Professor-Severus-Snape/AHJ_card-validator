@@ -1,0 +1,9 @@
+Information about the authors:
+
+Image card-visa.svg has been taken from the https://icons8.com/icon/13608/visa
+Image card-mastercard.svg has been taken from the https://icons8.com/icon/13610/mastercard
+Image card-discoverCard.svg has been taken from the https://icons8.com/icon/20798/discover-card
+Image card-dinersClub.svg has been taken from the https://icons8.com/icon/20796/diners-club
+Image card-americanExpress.svg has been taken from the https://icons8.com/icon/13607/american-express
+Image card-mir.svg has been taken from the https://icons8.com/icon/59239/mir
+Image card-jcb.svg has been taken from the https://www.flaticon.com/free-icon/card_15398022
