@@ -9,3 +9,98 @@ button,
 div {
   -webkit-tap-highlight-color: transparent;
 }
+
+button, input {
+  font-size: inherit;
+  color: inherit;
+  background-color: #fff;
+}
+
+button {
+	cursor: pointer;
+}
+
+input:focus, input:active,
+button:focus, button:active {
+  outline: none;
+}
+
+ul, ol {
+  list-style-type: none;
+}
+
+img {
+  display: block;
+}
+
+body {
+  padding: 50px;
+  background-color: lightgrey;
+}
+
+.container {
+  width: 700px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.main-title {
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.cards {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+
+  margin-bottom: 20px;
+}
+
+.cards__item {
+  width: 85px;
+}
+
+.cards__img {
+  width: 100%;
+}
+
+.form-validator {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+}
+
+.form-validator__input {
+  width: calc(100% - 160px - 20px);
+  padding: 20px;
+}
+
+.form-validator__button {
+  width: 160px;
+  padding: 15px;
+  border: none;
+  border-radius: 10px;
+
+  background-color: #5cb85c;
+}
+
+@media (max-width: 800px) {
+  .container {
+    width: 100%;
+  }
+
+  .cards {
+    flex-wrap: wrap;
+  }
+}
+
+@media (max-width: 570px) {
+  .form-validator {
+    flex-direction: column;
+  }
+
+  .form-validator__input {
+    width: 100%;
+  }
+}
