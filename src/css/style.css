@@ -5,6 +5,11 @@
   font-family: Arial, sans-serif;
 }
 
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
 button,
 div {
   -webkit-tap-highlight-color: transparent;
@@ -65,24 +70,30 @@ body {
   width: 100%;
 }
 
-.form-validator {
+.form {
   display: flex;
   gap: 20px;
   justify-content: center;
+
+  margin-bottom: 20px;
 }
 
-.form-validator__input {
+.form__input {
   width: calc(100% - 160px - 20px);
   padding: 20px;
 }
 
-.form-validator__button {
+.form__button {
   width: 160px;
   padding: 15px;
   border: none;
   border-radius: 10px;
 
   background-color: #5cb85c;
+}
+
+.copyrights {
+  text-align: center;
 }
 
 @media (max-width: 800px) {
@@ -96,11 +107,11 @@ body {
 }
 
 @media (max-width: 570px) {
-  .form-validator {
+  .form {
     flex-direction: column;
   }
 
-  .form-validator__input {
+  .form__input {
     width: 100%;
   }
 }
