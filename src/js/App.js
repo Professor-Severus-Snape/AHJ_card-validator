@@ -31,7 +31,7 @@ export default class App {
     this.container.append(this.form);
     this.container.append(this.copyrights);
 
-    // this.form.addEventListener('submit', this.onFormSubmit.bind(this));
+    this.form.addEventListener('submit', this.onFormSubmit.bind(this));
     this.input.addEventListener('input', this.onInput.bind(this));
   }
 
@@ -53,5 +53,20 @@ export default class App {
 
     // разделяем пробелами каждые 4 цифры:
     this.input.value = this.input.value.split(/([0-9]{4})/).filter((num) => num).join(' ');
+  }
+
+  onFormSubmit(event) {
+    event.preventDefault();
+    // примерВставки: 1111222233334444555 // NOTE: отладка !!!
+
+    const cardNumber = this.input.value.replaceAll(' ', '');
+
+    if (!cardNumber.length) {
+      console.warn('Введите номер карты для проверки'); // NOTE: добавить логику !!!
+    } else if (cardNumber.length === 13 || cardNumber.length === 16 || cardNumber.length === 19) {
+      console.warn('Проверяем карту на принадлежность к платежной системе!'); // NOTE: добавить логику !!!
+    } else {
+      console.warn('Номер должен содержать 13, 16 или 19 цифр. Проверьте правильность ввода!'); // NOTE: добавить логику !!!
+    }
   }
 }
