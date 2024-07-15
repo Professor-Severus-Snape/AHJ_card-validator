@@ -41,41 +41,17 @@ export default class App {
     }
   }
 
-  onInput(event) {
-      const numbers = /[0-9]/;
-      const regExp = /[0-9]{4}/;
+  onInput() {
+    // console.log('событие input!'); // NOTE: отладка !!!
+    // примерВставки:34jh53j45j45gjh4g5hj432g5jh234g5j4g5j43g25jh25 // NOTE: отладка !!!
 
-      // console.log('event.inputType: ', event.inputType); // 'insertText' или 'deleteContentBackward'
-      // console.log('event.data: ', event.data); // нажатый символ или null
+    // не позволяем ввести ничего, кроме цифр 0-9:
+    this.input.value = this.input.value.split('').filter((char) => /[0-9]/.test(char)).join('');
 
-      // не позволяем ввести ничего, кроме цифр 0-9, ограничиваем размер поля 19-ю цифрами и 4-мя пробелами:
-      if (event.inputType === 'insertText' && !numbers.test(event.data) || this.input.value.length > (19 + 4)) {
-        this.input.value = this.input.value.slice(0, this.input.value.length - 1);
-        return;
-      }
+    // ограничиваем размер поля 19-ю цифрами:
+    this.input.value = this.input.value.slice(0, 19);
 
-      // обеспечиваем удаление пробелов при помощи клавиш 'backspace' и 'delete':
-      if (event.inputType === 'deleteContentBackward') {
-        if (this.input.value.length <= (16 + 3) && this.input.value.length % 5 === 0) {
-          this.input.value = this.input.value.slice(0, this.input.value.length - 1);
-          return;
-        }
-        else if (this.input.value.length === (16 + 4)) {
-          this.input.value = this.input.value.slice(0, this.input.value.length - 1);
-        }
-        else if (this.input.value.length > (16 + 4)) {
-          this.input.value = this.input.value.slice(0, this.input.value.length);
-        }
-        return;
-      }
-
-      // добавляем пробел после 4 цифр подряд (если цифр не 16):
-      if (regExp.test(this.input.value.slice(-4)) && this.input.value.length !== (16 + 3) && this.input.value.length !== (17 + 3) && this.input.value.length < (19 + 4))
-      {
-        this.input.value += ' ';
-      } else if (regExp.test(this.input.value.slice(-5, -1)) && this.input.value.length === (17 + 3)) {
-        console.log('цифр больше 16!!!');
-        this.input.value = this.input.value.slice(0, -1) + ' ' + this.input.value.slice(-1);
-      }
+    // разделяем пробелами каждые 4 цифры:
+    this.input.value = this.input.value.split(/([0-9]{4})/).filter((num) => num).join(' ');
   }
 }
