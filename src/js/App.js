@@ -2,6 +2,8 @@ import MainTitle from './MainTitle';
 import Cards from './Cards';
 import Form from './Form';
 import Copyrights from './Copyrights';
+import luhnAlgorithm from './luhnAlgorithm';
+import checkCardValidity from './checkCardValidity';
 
 export default class App {
   constructor() {
@@ -62,11 +64,20 @@ export default class App {
     const cardNumber = this.input.value.replaceAll(' ', '');
 
     if (!cardNumber.length) {
-      console.warn('Введите номер карты для проверки'); // NOTE: добавить логику !!!
-    } else if (cardNumber.length === 13 || cardNumber.length === 16 || cardNumber.length === 19) {
-      console.warn('Проверяем карту на принадлежность к платежной системе!'); // NOTE: добавить логику !!!
+      console.warn('Введите номер карты для проверки!'); // NOTE: добавить всплывающую подсказку !!!
+    } else if (cardNumber.length > 11) {
+      if (luhnAlgorithm(cardNumber)) {
+        const result = checkCardValidity(cardNumber);
+        if (result) {
+          console.warn(result); // NOTE: добавить логику !!!
+        } else {
+          console.log('Платежная система не определена!'); // NOTE: добавить логику !!!
+        }
+      } else {
+        console.log('Неверный номер карты!'); // NOTE: добавить логику !!!
+      }
     } else {
-      console.warn('Номер должен содержать 13, 16 или 19 цифр. Проверьте правильность ввода!'); // NOTE: добавить логику !!!
+      console.warn('Номер должен содержать от 12 до 19 цифр. Проверьте правильность ввода!'); // NOTE: добавить всплывающую подсказку !!!
     }
   }
 }
