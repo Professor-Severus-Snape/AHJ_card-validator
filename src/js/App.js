@@ -48,7 +48,7 @@ export default class App {
     // примерВставки:34jh53j45j45gjh4g5hj432g5jh234g5j4g5j43g25jh25 // NOTE: отладка !!!
 
     // не позволяем ввести ничего, кроме цифр 0-9:
-    this.input.value = this.input.value.split('').filter((char) => /[0-9]/.test(char)).join('');
+    this.input.value = this.input.value.replace(/\D/g, '');
 
     // ограничиваем размер поля 19-ю цифрами:
     this.input.value = this.input.value.slice(0, 19);
