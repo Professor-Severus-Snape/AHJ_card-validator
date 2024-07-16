@@ -16,6 +16,7 @@ export default class App {
     this.formConstructor = new Form();
     this.form = this.formConstructor.element;
     this.input = this.formConstructor.inputElement;
+    this.tooltip = this.formConstructor.tooltipElement;
     this.button = this.formConstructor.buttonElement;
 
     this.copyrights = new Copyrights().element;
@@ -47,6 +48,8 @@ export default class App {
     // console.log('событие input!'); // NOTE: отладка !!!
     // примерВставки:34jh53j45j45gjh4g5hj432g5jh234g5j4g5j43g25jh25 // NOTE: отладка !!!
 
+    this.tooltip.classList.add('hidden');
+
     // не позволяем ввести ничего, кроме цифр 0-9:
     this.input.value = this.input.value.replace(/\D/g, '');
 
@@ -64,7 +67,8 @@ export default class App {
     const cardNumber = this.input.value.replaceAll(' ', '');
 
     if (!cardNumber.length) {
-      console.warn('Введите номер карты для проверки!'); // NOTE: добавить всплывающую подсказку !!!
+      this.tooltip.textContent = 'Введите номер карты!';
+      this.tooltip.classList.remove('hidden');
     } else if (cardNumber.length > 11) {
       if (luhnAlgorithm(cardNumber)) {
         const result = checkCardValidity(cardNumber);
@@ -77,7 +81,8 @@ export default class App {
         console.log('Неверный номер карты!'); // NOTE: добавить логику !!!
       }
     } else {
-      console.warn('Номер должен содержать от 12 до 19 цифр. Проверьте правильность ввода!'); // NOTE: добавить всплывающую подсказку !!!
+      this.tooltip.textContent = 'Введите от 12 до 19 цифр!';
+      this.tooltip.classList.remove('hidden');
     }
   }
 }

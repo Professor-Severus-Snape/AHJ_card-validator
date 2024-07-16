@@ -71,16 +71,28 @@ body {
 }
 
 .form {
+  position: relative;
+
   display: flex;
   gap: 20px;
   justify-content: center;
 
-  margin-bottom: 20px;
+  margin-bottom: 40px;
 }
 
 .form__input {
   width: calc(100% - 160px - 20px);
   padding: 20px;
+}
+
+.form__tooltip {
+  position: absolute;
+  left: 0;
+  top: 62px;
+
+  padding: 5px;
+
+  color: red;
 }
 
 .form__button {
@@ -96,6 +108,10 @@ body {
   text-align: center;
 }
 
+.hidden {
+  display: none;
+}
+
 @media (max-width: 800px) {
   .container {
     width: 100%;
@@ -109,6 +125,7 @@ body {
 @media (max-width: 570px) {
   .form {
     flex-direction: column;
+    gap: 46px;
   }
 
   .form__input {
