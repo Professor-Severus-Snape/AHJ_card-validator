@@ -19,7 +19,7 @@ export default function checkCardValidity(input) {
     cardType = 'DinersClub';
   } else if (slice1 === 4) {
     cardType = 'Visa';
-  } else if (slice4 === 6011 || (slice3 > 643 && slice3 < 650) || slice2 === 65) {
+  } else if (slice4 === 6011 || (slice3 > 643 && slice2 < 66)) {
     cardType = 'Discover';
   }
 
