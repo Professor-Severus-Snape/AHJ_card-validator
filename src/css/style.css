@@ -70,6 +70,10 @@ body {
   width: 100%;
 }
 
+.has-opacity {
+  opacity: 0.2;
+}
+
 .form {
   position: relative;
 
@@ -83,6 +87,17 @@ body {
 .form__input {
   width: calc(100% - 160px - 20px);
   padding: 20px;
+
+  border: none;
+  border-radius: 10px;
+}
+
+.form__input_valid {
+  background-color: rgb(125, 231, 125);
+}
+
+.form__input_invalid {
+  background-color: rgb(249, 166, 166);
 }
 
 .form__tooltip {
@@ -106,6 +121,10 @@ body {
 
 .copyrights {
   text-align: center;
+}
+
+.valid {
+  color: black;
 }
 
 .hidden {

@@ -8,30 +8,31 @@ import mir from '../img/card-mir.png';
 
 export default class Cards {
   constructor() {
-    this.element = `
-      <ul class="cards">
-        <li class="cards__item cards__item_visa">
-          <img class="cards__img" src="${visa}" alt="visa">
-        </li>
-        <li class="cards__item cards__item_mastercard">
-          <img class="cards__img" src="${mastercard}" alt="mastercard">
-        </li>
-        <li class="cards__item cards__item_americanExpress">
-          <img class="cards__img" src="${americanExpress}" alt="americanExpress">
-        </li>
-        <li class="cards__item cards__item_discoverCard">
-          <img class="cards__img" src="${discoverCard}" alt="discoverCard">
-        </li>
-        <li class="cards__item cards__item_jcb">
-          <img class="cards__img" src="${jcb}" alt="jcb">
-        </li>
-        <li class="cards__item cards__item_dinersClub">
-          <img class="cards__img" src="${dinersClub}" alt="dinersClub">
-        </li>
-        <li class="cards__item cards__item_mir">
-          <img class="cards__img" src="${mir}" alt="mir">
-        </li>
-      </ul>
-    `;
+    this.element = document.createElement('ul');
+    this.element.classList.add('cards');
+
+    const cardItems = [
+      { type: 'visa', src: visa, alt: 'Visa' },
+      { type: 'mastercard', src: mastercard, alt: 'MasterCard' },
+      { type: 'americanexpress', src: americanExpress, alt: 'AmericanExpress' },
+      { type: 'discovercard', src: discoverCard, alt: 'DiscoverCard' },
+      { type: 'jcb', src: jcb, alt: 'JCB' },
+      { type: 'dinersclub', src: dinersClub, alt: 'DinersClub' },
+      { type: 'mir', src: mir, alt: 'MIR' },
+    ];
+
+    cardItems.forEach((cardItem) => {
+      const item = document.createElement('li');
+      item.classList.add('cards__item');
+
+      const image = document.createElement('img');
+      image.classList.add('cards__img', cardItem.type);
+      image.src = cardItem.src;
+      image.alt = cardItem.alt;
+
+      item.append(image);
+
+      this.element.append(item);
+    });
   }
 }

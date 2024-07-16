@@ -12,6 +12,7 @@ export default class App {
     this.mainTitle = new MainTitle().element;
 
     this.cards = new Cards().element;
+    this.cardImages = this.cards.querySelectorAll('.cards__img');
 
     this.formConstructor = new Form();
     this.form = this.formConstructor.element;
@@ -30,7 +31,7 @@ export default class App {
   // отрисовка первоначального состояния трекера:
   render() {
     this.container.append(this.mainTitle);
-    this.container.insertAdjacentHTML('beforeend', this.cards);
+    this.container.append(this.cards);
     this.container.append(this.form);
     this.container.append(this.copyrights);
 
@@ -44,11 +45,16 @@ export default class App {
     }
   }
 
-  onInput() {
-    // console.log('событие input!'); // NOTE: отладка !!!
-    // примерВставки:34jh53j45j45gjh4g5hj432g5jh234g5j4g5j43g25jh25 // NOTE: отладка !!!
-
+  rerender() {
+    this.cardImages.forEach((image) => image.classList.remove('has-opacity'));
+    this.input.classList.remove('form__input_valid');
+    this.input.classList.remove('form__input_invalid');
     this.tooltip.classList.add('hidden');
+    this.tooltip.classList.remove('valid');
+  }
+
+  onInput() {
+    this.rerender();
 
     // не позволяем ввести ничего, кроме цифр 0-9:
     this.input.value = this.input.value.replace(/\D/g, '');
@@ -62,7 +68,6 @@ export default class App {
 
   onFormSubmit(event) {
     event.preventDefault();
-    // примерВставки: 1111222233334444555 // NOTE: отладка !!!
 
     const cardNumber = this.input.value.replaceAll(' ', '');
 
@@ -73,12 +78,25 @@ export default class App {
       if (luhnAlgorithm(cardNumber)) {
         const result = checkCardValidity(cardNumber);
         if (result) {
-          console.warn(result); // NOTE: добавить логику !!!
+          const images = this.cards.querySelectorAll('.cards__img');
+          images.forEach((image) => {
+            if (!image.classList.contains(result.toLowerCase())) {
+              image.classList.add('has-opacity');
+            }
+          });
+          this.input.classList.add('form__input_valid');
+          this.tooltip.textContent = result;
+          this.tooltip.classList.remove('hidden');
+          this.tooltip.classList.add('valid');
         } else {
-          console.log('Платежная система не определена!'); // NOTE: добавить логику !!!
+          this.input.classList.add('form__input_invalid');
+          this.tooltip.textContent = 'Платежная система не определена!';
+          this.tooltip.classList.remove('hidden');
         }
       } else {
-        console.log('Неверный номер карты!'); // NOTE: добавить логику !!!
+        this.input.classList.add('form__input_invalid');
+        this.tooltip.textContent = 'Неверный номер карты!';
+        this.tooltip.classList.remove('hidden');
       }
     } else {
       this.tooltip.textContent = 'Введите от 12 до 19 цифр!';
