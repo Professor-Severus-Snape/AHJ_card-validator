@@ -1,5 +1,7 @@
 # Домашнее задание к занятию "4. Организация тестирования"
 
+[![Build status](https://ci.appveyor.com/api/projects/status/fd7x6e6xk5ct4ate?svg=true)](https://ci.appveyor.com/project/Professor-Severus-Snape/ahj-card-validator)
+
 Правила сдачи задания:
 
 1. В рамках этого ДЗ можно использовать любой менеджер пакетов.

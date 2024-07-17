@@ -7,5 +7,6 @@ module.exports = {
     historyApiFallback: true,
     open: true,
     compress: true,
+    port: 9000,
   },
 };

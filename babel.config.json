@@ -8,6 +8,19 @@
       }
     ]
   ],
+  "env": {
+    "test": {
+      "presets": [
+        [
+          "@babel/preset-env",
+          {
+            "targets": {
+              "node": "current"
+            }
+          }
+        ]
+      ]
+    }
+  },
   "targets": "last 2 versions, not dead, > 0.2%"
 }
-
