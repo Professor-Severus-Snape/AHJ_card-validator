@@ -1,5 +1,6 @@
 import puppeteer from 'puppeteer';
 import { fork } from 'child_process';
+import { setTimeout } from 'node:timers/promises';
 
 jest.setTimeout(30000); // default puppeteer timeout
 
@@ -19,6 +20,8 @@ describe('Form', () => {
         reject();
       }
     });
+
+    await setTimeout(1000);
 
     browser = await puppeteer.launch({
       // headless: false, // show gui
