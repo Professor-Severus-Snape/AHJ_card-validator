@@ -4773,8 +4773,6 @@ var es_string_replace = __webpack_require__(5440);
 var es_string_split = __webpack_require__(744);
 // EXTERNAL MODULE: ./node_modules/core-js/modules/esnext.string.replace-all.js
 var esnext_string_replace_all = __webpack_require__(2041);
-// EXTERNAL MODULE: ./node_modules/core-js/modules/web.dom-collections.for-each.js
-var web_dom_collections_for_each = __webpack_require__(3500);
 // EXTERNAL MODULE: ./node_modules/core-js/modules/web.dom-collections.iterator.js
 var web_dom_collections_iterator = __webpack_require__(2953);
 ;// CONCATENATED MODULE: ./src/js/MainTitle.js
@@ -4803,6 +4801,8 @@ function MainTitle() {
   this.element.textContent = 'Check your credit card number';
 });
 
+// EXTERNAL MODULE: ./node_modules/core-js/modules/web.dom-collections.for-each.js
+var web_dom_collections_for_each = __webpack_require__(3500);
 ;// CONCATENATED MODULE: ./src/img/card-visa.svg
 const card_visa_namespaceObject = __webpack_require__.p + "img/card-visa.svg";
 ;// CONCATENATED MODULE: ./src/img/card-mastercard.svg
@@ -4830,11 +4830,11 @@ function Cards_typeof(o) { "@babel/helpers - typeof"; return Cards_typeof = "fun
 
 
 
+function Cards_classCallCheck(a, n) { if (!(a instanceof n)) throw new TypeError("Cannot call a class as a function"); }
 function Cards_defineProperties(e, r) { for (var t = 0; t < r.length; t++) { var o = r[t]; o.enumerable = o.enumerable || !1, o.configurable = !0, "value" in o && (o.writable = !0), Object.defineProperty(e, Cards_toPropertyKey(o.key), o); } }
 function Cards_createClass(e, r, t) { return r && Cards_defineProperties(e.prototype, r), t && Cards_defineProperties(e, t), Object.defineProperty(e, "prototype", { writable: !1 }), e; }
 function Cards_toPropertyKey(t) { var i = Cards_toPrimitive(t, "string"); return "symbol" == Cards_typeof(i) ? i : i + ""; }
 function Cards_toPrimitive(t, r) { if ("object" != Cards_typeof(t) || !t) return t; var e = t[Symbol.toPrimitive]; if (void 0 !== e) { var i = e.call(t, r || "default"); if ("object" != Cards_typeof(i)) return i; throw new TypeError("@@toPrimitive must return a primitive value."); } return ("string" === r ? String : Number)(t); }
-function Cards_classCallCheck(a, n) { if (!(a instanceof n)) throw new TypeError("Cannot call a class as a function"); }
 
 
 
@@ -4842,51 +4842,72 @@ function Cards_classCallCheck(a, n) { if (!(a instanceof n)) throw new TypeError
 
 
 
-var Cards = /*#__PURE__*/Cards_createClass(function Cards() {
-  var _this = this;
-  Cards_classCallCheck(this, Cards);
-  this.element = document.createElement('ul');
-  this.element.classList.add('cards');
-  var cardItems = [{
-    type: 'visa',
-    src: card_visa_namespaceObject,
-    alt: 'Visa'
+var Cards = /*#__PURE__*/function () {
+  function Cards() {
+    var _this = this;
+    Cards_classCallCheck(this, Cards);
+    this.element = document.createElement('ul');
+    this.element.classList.add('cards');
+    this.cardImages = [];
+    var cardItems = [{
+      type: 'visa',
+      src: card_visa_namespaceObject,
+      alt: 'Visa'
+    }, {
+      type: 'mastercard',
+      src: card_mastercard_namespaceObject,
+      alt: 'MasterCard'
+    }, {
+      type: 'americanexpress',
+      src: card_americanExpress_namespaceObject,
+      alt: 'AmericanExpress'
+    }, {
+      type: 'discovercard',
+      src: card_discoverCard_namespaceObject,
+      alt: 'DiscoverCard'
+    }, {
+      type: 'jcb',
+      src: card_jcb_namespaceObject,
+      alt: 'JCB'
+    }, {
+      type: 'dinersclub',
+      src: card_dinersClub_namespaceObject,
+      alt: 'DinersClub'
+    }, {
+      type: 'mir',
+      src: card_mir_namespaceObject,
+      alt: 'MIR'
+    }];
+    cardItems.forEach(function (cardItem) {
+      var item = document.createElement('li');
+      item.classList.add('cards__item');
+      var image = document.createElement('img');
+      image.classList.add('cards__img', cardItem.type);
+      image.src = cardItem.src;
+      image.alt = cardItem.alt;
+      _this.cardImages.push(image);
+      item.append(image);
+      _this.element.append(item);
+    });
+  }
+  return Cards_createClass(Cards, [{
+    key: "activateCards",
+    value: function activateCards() {
+      this.cardImages.forEach(function (image) {
+        return image.classList.remove('has-opacity');
+      });
+    }
   }, {
-    type: 'mastercard',
-    src: card_mastercard_namespaceObject,
-    alt: 'MasterCard'
-  }, {
-    type: 'americanexpress',
-    src: card_americanExpress_namespaceObject,
-    alt: 'AmericanExpress'
-  }, {
-    type: 'discovercard',
-    src: card_discoverCard_namespaceObject,
-    alt: 'DiscoverCard'
-  }, {
-    type: 'jcb',
-    src: card_jcb_namespaceObject,
-    alt: 'JCB'
-  }, {
-    type: 'dinersclub',
-    src: card_dinersClub_namespaceObject,
-    alt: 'DinersClub'
-  }, {
-    type: 'mir',
-    src: card_mir_namespaceObject,
-    alt: 'MIR'
-  }];
-  cardItems.forEach(function (cardItem) {
-    var item = document.createElement('li');
-    item.classList.add('cards__item');
-    var image = document.createElement('img');
-    image.classList.add('cards__img', cardItem.type);
-    image.src = cardItem.src;
-    image.alt = cardItem.alt;
-    item.append(image);
-    _this.element.append(item);
-  });
-});
+    key: "deActivateCards",
+    value: function deActivateCards(cardType) {
+      this.cardImages.forEach(function (image) {
+        if (!image.classList.contains(cardType.toLowerCase())) {
+          image.classList.add('has-opacity');
+        }
+      });
+    }
+  }]);
+}();
 
 ;// CONCATENATED MODULE: ./src/js/Form.js
 
@@ -5039,7 +5060,6 @@ function App_typeof(o) { "@babel/helpers - typeof"; return App_typeof = "functio
 
 
 
-
 function App_classCallCheck(a, n) { if (!(a instanceof n)) throw new TypeError("Cannot call a class as a function"); }
 function App_defineProperties(e, r) { for (var t = 0; t < r.length; t++) { var o = r[t]; o.enumerable = o.enumerable || !1, o.configurable = !0, "value" in o && (o.writable = !0), Object.defineProperty(e, App_toPropertyKey(o.key), o); } }
 function App_createClass(e, r, t) { return r && App_defineProperties(e.prototype, r), t && App_defineProperties(e, t), Object.defineProperty(e, "prototype", { writable: !1 }), e; }
@@ -5055,9 +5075,8 @@ var App = /*#__PURE__*/function () {
   function App() {
     App_classCallCheck(this, App);
     this.container = document.querySelector('.container');
-    this.mainTitle = new MainTitle().element;
-    this.cards = new Cards().element;
-    this.cardImages = this.cards.querySelectorAll('.cards__img');
+    this.mainTitle = new MainTitle();
+    this.cards = new Cards();
     this.formConstructor = new Form();
     this.form = this.formConstructor.element;
     this.input = this.formConstructor.inputElement;
@@ -5076,8 +5095,8 @@ var App = /*#__PURE__*/function () {
   }, {
     key: "render",
     value: function render() {
-      this.container.append(this.mainTitle);
-      this.container.append(this.cards);
+      this.container.append(this.mainTitle.element);
+      this.container.append(this.cards.element);
       this.container.append(this.form);
       this.container.append(this.copyrights);
       this.form.addEventListener('submit', this.onFormSubmit.bind(this));
@@ -5093,9 +5112,7 @@ var App = /*#__PURE__*/function () {
   }, {
     key: "rerender",
     value: function rerender() {
-      this.cardImages.forEach(function (image) {
-        return image.classList.remove('has-opacity');
-      });
+      this.cards.activateCards();
       this.input.classList.remove('form__input_valid');
       this.input.classList.remove('form__input_invalid');
       this.tooltip.classList.add('hidden');
@@ -5129,12 +5146,7 @@ var App = /*#__PURE__*/function () {
         if (luhnAlgorithm(cardNumber)) {
           var result = checkCardValidity(cardNumber);
           if (result) {
-            var images = this.cards.querySelectorAll('.cards__img');
-            images.forEach(function (image) {
-              if (!image.classList.contains(result.toLowerCase())) {
-                image.classList.add('has-opacity');
-              }
-            });
+            this.cards.deActivateCards(result);
             this.input.classList.add('form__input_valid');
             this.tooltip.textContent = result;
             this.tooltip.classList.remove('hidden');
