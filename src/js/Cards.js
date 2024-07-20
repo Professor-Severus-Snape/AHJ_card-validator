@@ -10,6 +10,7 @@ export default class Cards {
   constructor() {
     this.element = document.createElement('ul');
     this.element.classList.add('cards');
+    this.cardImages = [];
 
     const cardItems = [
       { type: 'visa', src: visa, alt: 'Visa' },
@@ -30,9 +31,23 @@ export default class Cards {
       image.src = cardItem.src;
       image.alt = cardItem.alt;
 
+      this.cardImages.push(image);
+
       item.append(image);
 
       this.element.append(item);
+    });
+  }
+
+  activateCards() {
+    this.cardImages.forEach((image) => image.classList.remove('has-opacity'));
+  }
+
+  deActivateCards(cardType) {
+    this.cardImages.forEach((image) => {
+      if (!image.classList.contains(cardType.toLowerCase())) {
+        image.classList.add('has-opacity');
+      }
     });
   }
 }

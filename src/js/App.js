@@ -9,10 +9,9 @@ export default class App {
   constructor() {
     this.container = document.querySelector('.container');
 
-    this.mainTitle = new MainTitle().element;
+    this.mainTitle = new MainTitle();
 
-    this.cards = new Cards().element;
-    this.cardImages = this.cards.querySelectorAll('.cards__img');
+    this.cards = new Cards();
 
     this.formConstructor = new Form();
     this.form = this.formConstructor.element;
@@ -30,8 +29,8 @@ export default class App {
 
   // отрисовка первоначального состояния трекера:
   render() {
-    this.container.append(this.mainTitle);
-    this.container.append(this.cards);
+    this.container.append(this.mainTitle.element);
+    this.container.append(this.cards.element);
     this.container.append(this.form);
     this.container.append(this.copyrights);
 
@@ -46,7 +45,7 @@ export default class App {
   }
 
   rerender() {
-    this.cardImages.forEach((image) => image.classList.remove('has-opacity'));
+    this.cards.activateCards();
     this.input.classList.remove('form__input_valid');
     this.input.classList.remove('form__input_invalid');
     this.tooltip.classList.add('hidden');
@@ -78,12 +77,7 @@ export default class App {
       if (luhnAlgorithm(cardNumber)) {
         const result = checkCardValidity(cardNumber);
         if (result) {
-          const images = this.cards.querySelectorAll('.cards__img');
-          images.forEach((image) => {
-            if (!image.classList.contains(result.toLowerCase())) {
-              image.classList.add('has-opacity');
-            }
-          });
+          this.cards.deActivateCards(result);
           this.input.classList.add('form__input_valid');
           this.tooltip.textContent = result;
           this.tooltip.classList.remove('hidden');
