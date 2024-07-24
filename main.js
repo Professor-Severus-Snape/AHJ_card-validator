@@ -4749,30 +4749,16 @@ var es_symbol_description = __webpack_require__(9463);
 var es_symbol_iterator = __webpack_require__(2259);
 // EXTERNAL MODULE: ./node_modules/core-js/modules/es.symbol.to-primitive.js
 var es_symbol_to_primitive = __webpack_require__(5700);
-// EXTERNAL MODULE: ./node_modules/core-js/modules/es.array.filter.js
-var es_array_filter = __webpack_require__(2008);
 // EXTERNAL MODULE: ./node_modules/core-js/modules/es.array.iterator.js
 var es_array_iterator = __webpack_require__(3792);
-// EXTERNAL MODULE: ./node_modules/core-js/modules/es.array.join.js
-var es_array_join = __webpack_require__(8598);
-// EXTERNAL MODULE: ./node_modules/core-js/modules/es.array.slice.js
-var es_array_slice = __webpack_require__(4782);
 // EXTERNAL MODULE: ./node_modules/core-js/modules/es.date.to-primitive.js
 var es_date_to_primitive = __webpack_require__(9572);
 // EXTERNAL MODULE: ./node_modules/core-js/modules/es.number.constructor.js
 var es_number_constructor = __webpack_require__(2892);
 // EXTERNAL MODULE: ./node_modules/core-js/modules/es.object.to-string.js
 var es_object_to_string = __webpack_require__(6099);
-// EXTERNAL MODULE: ./node_modules/core-js/modules/es.regexp.exec.js
-var es_regexp_exec = __webpack_require__(7495);
 // EXTERNAL MODULE: ./node_modules/core-js/modules/es.string.iterator.js
 var es_string_iterator = __webpack_require__(7764);
-// EXTERNAL MODULE: ./node_modules/core-js/modules/es.string.replace.js
-var es_string_replace = __webpack_require__(5440);
-// EXTERNAL MODULE: ./node_modules/core-js/modules/es.string.split.js
-var es_string_split = __webpack_require__(744);
-// EXTERNAL MODULE: ./node_modules/core-js/modules/esnext.string.replace-all.js
-var esnext_string_replace_all = __webpack_require__(2041);
 // EXTERNAL MODULE: ./node_modules/core-js/modules/web.dom-collections.iterator.js
 var web_dom_collections_iterator = __webpack_require__(2953);
 ;// CONCATENATED MODULE: ./src/js/MainTitle.js
@@ -4862,9 +4848,9 @@ var Cards = /*#__PURE__*/function () {
       src: card_americanExpress_namespaceObject,
       alt: 'AmericanExpress'
     }, {
-      type: 'discovercard',
+      type: 'discover',
       src: card_discoverCard_namespaceObject,
-      alt: 'DiscoverCard'
+      alt: 'Discover'
     }, {
       type: 'jcb',
       src: card_jcb_namespaceObject,
@@ -4909,51 +4895,134 @@ var Cards = /*#__PURE__*/function () {
   }]);
 }();
 
+// EXTERNAL MODULE: ./node_modules/core-js/modules/es.array.filter.js
+var es_array_filter = __webpack_require__(2008);
+// EXTERNAL MODULE: ./node_modules/core-js/modules/es.array.join.js
+var es_array_join = __webpack_require__(8598);
+// EXTERNAL MODULE: ./node_modules/core-js/modules/es.array.slice.js
+var es_array_slice = __webpack_require__(4782);
+// EXTERNAL MODULE: ./node_modules/core-js/modules/es.regexp.exec.js
+var es_regexp_exec = __webpack_require__(7495);
+// EXTERNAL MODULE: ./node_modules/core-js/modules/es.string.replace.js
+var es_string_replace = __webpack_require__(5440);
+// EXTERNAL MODULE: ./node_modules/core-js/modules/es.string.split.js
+var es_string_split = __webpack_require__(744);
+// EXTERNAL MODULE: ./node_modules/core-js/modules/esnext.string.replace-all.js
+var esnext_string_replace_all = __webpack_require__(2041);
 ;// CONCATENATED MODULE: ./src/js/Form.js
-
-
-
-
-
-
-
-
-
-
 function Form_typeof(o) { "@babel/helpers - typeof"; return Form_typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (o) { return typeof o; } : function (o) { return o && "function" == typeof Symbol && o.constructor === Symbol && o !== Symbol.prototype ? "symbol" : typeof o; }, Form_typeof(o); }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+function Form_classCallCheck(a, n) { if (!(a instanceof n)) throw new TypeError("Cannot call a class as a function"); }
 function Form_defineProperties(e, r) { for (var t = 0; t < r.length; t++) { var o = r[t]; o.enumerable = o.enumerable || !1, o.configurable = !0, "value" in o && (o.writable = !0), Object.defineProperty(e, Form_toPropertyKey(o.key), o); } }
 function Form_createClass(e, r, t) { return r && Form_defineProperties(e.prototype, r), t && Form_defineProperties(e, t), Object.defineProperty(e, "prototype", { writable: !1 }), e; }
 function Form_toPropertyKey(t) { var i = Form_toPrimitive(t, "string"); return "symbol" == Form_typeof(i) ? i : i + ""; }
 function Form_toPrimitive(t, r) { if ("object" != Form_typeof(t) || !t) return t; var e = t[Symbol.toPrimitive]; if (void 0 !== e) { var i = e.call(t, r || "default"); if ("object" != Form_typeof(i)) return i; throw new TypeError("@@toPrimitive must return a primitive value."); } return ("string" === r ? String : Number)(t); }
-function Form_classCallCheck(a, n) { if (!(a instanceof n)) throw new TypeError("Cannot call a class as a function"); }
-var Form = /*#__PURE__*/Form_createClass(
-// <form class="form">
-//   <label class="form__label visually-hidden" for="cardNumber">Введите номер карты</label>
-//   <input class="form__input" id="cardNumber" type="text" placeholder="Введите номер карты">
-//   <div class="form__tooltip hidden"></div>
-//   <button class="form__button" type="submit">Click to Validate</button>
-// </form>
-function Form() {
-  Form_classCallCheck(this, Form);
-  this.element = document.createElement('form');
-  this.element.classList.add('form');
-  this.labelElement = document.createElement('label');
-  this.labelElement.classList.add('form__label', 'visually-hidden');
-  this.labelElement.for = 'cardNumber';
-  this.labelElement.textContent = 'Введите номер карты';
-  this.inputElement = document.createElement('input');
-  this.inputElement.classList.add('form__input');
-  this.inputElement.id = 'cardNumber';
-  this.inputElement.type = 'text';
-  this.inputElement.placeholder = 'Введите номер карты';
-  this.tooltipElement = document.createElement('div');
-  this.tooltipElement.classList.add('form__tooltip', 'hidden');
-  this.buttonElement = document.createElement('button');
-  this.buttonElement.classList.add('form__button');
-  this.buttonElement.type = 'submit';
-  this.buttonElement.textContent = 'Click to Validate';
-  this.element.append(this.labelElement, this.inputElement, this.tooltipElement, this.buttonElement);
-});
+var Form = /*#__PURE__*/function () {
+  // <form class="form">
+  //   <label class="form__label visually-hidden" for="cardNumber">Введите номер карты</label>
+  //   <input class="form__input" id="cardNumber" type="text" placeholder="Введите номер карты">
+  //   <div class="form__tooltip hidden"></div>
+  //   <button class="form__button" type="submit">Click to Validate</button>
+  // </form>
+  function Form() {
+    Form_classCallCheck(this, Form);
+    this.element = document.createElement('form');
+    this.element.classList.add('form');
+    this.labelElement = document.createElement('label');
+    this.labelElement.classList.add('form__label', 'visually-hidden');
+    this.labelElement.for = 'cardNumber';
+    this.labelElement.textContent = 'Введите номер карты';
+    this.inputElement = document.createElement('input');
+    this.inputElement.classList.add('form__input');
+    this.inputElement.id = 'cardNumber';
+    this.inputElement.type = 'text';
+    this.inputElement.placeholder = 'Введите номер карты';
+    this.tooltipElement = document.createElement('div');
+    this.tooltipElement.classList.add('form__tooltip', 'hidden');
+    this.buttonElement = document.createElement('button');
+    this.buttonElement.classList.add('form__button');
+    this.buttonElement.type = 'submit';
+    this.buttonElement.textContent = 'Click to Validate';
+    this.element.append(this.labelElement, this.inputElement, this.tooltipElement, this.buttonElement);
+  }
+  return Form_createClass(Form, [{
+    key: "submitEventListener",
+    value: function submitEventListener(callback) {
+      this.element.addEventListener('submit', callback);
+    }
+  }, {
+    key: "inputEventListener",
+    value: function inputEventListener(callback) {
+      this.inputElement.addEventListener('input', callback);
+    }
+  }, {
+    key: "renderInitialState",
+    value: function renderInitialState() {
+      this.inputElement.classList.remove('form__input_valid');
+      this.inputElement.classList.remove('form__input_invalid');
+      this.tooltipElement.classList.add('hidden');
+      this.tooltipElement.classList.remove('valid');
+    }
+  }, {
+    key: "validateInput",
+    value: function validateInput() {
+      // не позволяем ввести ничего, кроме цифр 0-9:
+      this.inputElement.value = this.inputElement.value.replace(/\D/g, '');
+      // ограничиваем размер поля 19-ю цифрами:
+      this.inputElement.value = this.inputElement.value.slice(0, 19);
+      // разделяем пробелами каждые 4 цифры:
+      this.inputElement.value = this.inputElement.value.split(/([0-9]{4})/).filter(function (num) {
+        return num;
+      }).join(' ');
+    }
+  }, {
+    key: "getCardNumber",
+    value: function getCardNumber() {
+      return this.inputElement.value.replaceAll(' ', '');
+    }
+  }, {
+    key: "setValidInput",
+    value: function setValidInput() {
+      this.inputElement.classList.add('form__input_valid');
+    }
+  }, {
+    key: "setInValidInput",
+    value: function setInValidInput() {
+      this.inputElement.classList.add('form__input_invalid');
+    }
+  }, {
+    key: "setValidTooltip",
+    value: function setValidTooltip() {
+      this.tooltipElement.classList.add('valid');
+    }
+  }, {
+    key: "setTooltipText",
+    value: function setTooltipText(text) {
+      this.tooltipElement.textContent = text;
+    }
+  }, {
+    key: "showTooltip",
+    value: function showTooltip() {
+      this.tooltipElement.classList.remove('hidden');
+    }
+  }]);
+}();
 
 // EXTERNAL MODULE: ./node_modules/core-js/modules/es.string.link.js
 var es_string_link = __webpack_require__(778);
@@ -4989,11 +5058,13 @@ var Copyrights = /*#__PURE__*/function () {
     this.link.textContent = '© Professor-Severus-Snape, 2024';
     this.element.append(this.link);
   }
-  return Copyrights_createClass(Copyrights, null, [{
-    key: "stoleRights",
-    value: function stoleRights() {
-      // eslint-disable-next-line no-console
-      console.warn('This work has been stolen from https://github.com/Professor-Severus-Snape/AHJ_task-tracker');
+  return Copyrights_createClass(Copyrights, [{
+    key: "checkRights",
+    value: function checkRights() {
+      if (this.element.textContent !== '© Professor-Severus-Snape, 2024') {
+        // eslint-disable-next-line no-console
+        console.warn('This work has been stolen from https://github.com/Professor-Severus-Snape/AHJ_task-tracker');
+      }
     }
   }]);
 }();
@@ -5042,24 +5113,17 @@ function checkCardValidity(input) {
   return cardType;
 }
 ;// CONCATENATED MODULE: ./src/js/App.js
+
+
+
+
+
+
+
+
+
+
 function App_typeof(o) { "@babel/helpers - typeof"; return App_typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (o) { return typeof o; } : function (o) { return o && "function" == typeof Symbol && o.constructor === Symbol && o !== Symbol.prototype ? "symbol" : typeof o; }, App_typeof(o); }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 function App_classCallCheck(a, n) { if (!(a instanceof n)) throw new TypeError("Cannot call a class as a function"); }
 function App_defineProperties(e, r) { for (var t = 0; t < r.length; t++) { var o = r[t]; o.enumerable = o.enumerable || !1, o.configurable = !0, "value" in o && (o.writable = !0), Object.defineProperty(e, App_toPropertyKey(o.key), o); } }
 function App_createClass(e, r, t) { return r && App_defineProperties(e.prototype, r), t && App_defineProperties(e, t), Object.defineProperty(e, "prototype", { writable: !1 }), e; }
@@ -5074,97 +5138,75 @@ function App_toPrimitive(t, r) { if ("object" != App_typeof(t) || !t) return t; 
 var App = /*#__PURE__*/function () {
   function App() {
     App_classCallCheck(this, App);
-    this.container = document.querySelector('.container');
     this.mainTitle = new MainTitle();
     this.cards = new Cards();
-    this.formConstructor = new Form();
-    this.form = this.formConstructor.element;
-    this.input = this.formConstructor.inputElement;
-    this.tooltip = this.formConstructor.tooltipElement;
-    this.button = this.formConstructor.buttonElement;
-    this.copyrights = new Copyrights().element;
+    this.form = new Form();
+    this.copyrights = new Copyrights();
   }
   return App_createClass(App, [{
     key: "init",
     value: function init() {
       this.render();
-      this.checkRights();
+      this.addEventListeners();
+      this.copyrights.checkRights();
     }
-
-    // отрисовка первоначального состояния трекера:
   }, {
     key: "render",
     value: function render() {
+      this.container = document.querySelector('.container');
       this.container.append(this.mainTitle.element);
       this.container.append(this.cards.element);
-      this.container.append(this.form);
-      this.container.append(this.copyrights);
-      this.form.addEventListener('submit', this.onFormSubmit.bind(this));
-      this.input.addEventListener('input', this.onInput.bind(this));
+      this.container.append(this.form.element);
+      this.container.append(this.copyrights.element);
     }
   }, {
-    key: "checkRights",
-    value: function checkRights() {
-      if (this.copyrights.textContent !== '© Professor-Severus-Snape, 2024') {
-        Copyrights.stoleRights();
-      }
+    key: "addEventListeners",
+    value: function addEventListeners() {
+      this.form.submitEventListener(this.onFormSubmit.bind(this));
+      this.form.inputEventListener(this.onInput.bind(this));
     }
   }, {
     key: "rerender",
     value: function rerender() {
       this.cards.activateCards();
-      this.input.classList.remove('form__input_valid');
-      this.input.classList.remove('form__input_invalid');
-      this.tooltip.classList.add('hidden');
-      this.tooltip.classList.remove('valid');
+      this.form.renderInitialState();
     }
   }, {
     key: "onInput",
     value: function onInput() {
       this.rerender();
-
-      // не позволяем ввести ничего, кроме цифр 0-9:
-      this.input.value = this.input.value.replace(/\D/g, '');
-
-      // ограничиваем размер поля 19-ю цифрами:
-      this.input.value = this.input.value.slice(0, 19);
-
-      // разделяем пробелами каждые 4 цифры:
-      this.input.value = this.input.value.split(/([0-9]{4})/).filter(function (num) {
-        return num;
-      }).join(' ');
+      this.form.validateInput();
     }
   }, {
     key: "onFormSubmit",
     value: function onFormSubmit(event) {
       event.preventDefault();
-      var cardNumber = this.input.value.replaceAll(' ', '');
-      if (!cardNumber.length) {
-        this.tooltip.textContent = 'Введите номер карты!';
-        this.tooltip.classList.remove('hidden');
-      } else if (cardNumber.length > 11) {
+      var cardNumber = this.form.getCardNumber();
+      var inputLength = cardNumber.length;
+      var text = '';
+      if (!inputLength) {
+        text = 'Введите номер карты!';
+      } else if (inputLength > 11) {
         if (luhnAlgorithm(cardNumber)) {
           var result = checkCardValidity(cardNumber);
           if (result) {
+            text = result;
             this.cards.deActivateCards(result);
-            this.input.classList.add('form__input_valid');
-            this.tooltip.textContent = result;
-            this.tooltip.classList.remove('hidden');
-            this.tooltip.classList.add('valid');
+            this.form.setValidInput();
+            this.form.setValidTooltip();
           } else {
-            this.input.classList.add('form__input_invalid');
-            this.tooltip.textContent = 'Платежная система не определена!';
-            this.tooltip.classList.remove('hidden');
+            this.form.setInValidInput();
+            text = 'Платежная система не определена!';
           }
         } else {
-          this.input.classList.add('form__input_invalid');
-          this.tooltip.textContent = 'Неверный номер карты!';
-          this.tooltip.classList.remove('hidden');
+          text = 'Неверный номер карты!';
+          this.form.setInValidInput();
         }
       } else {
-        this.tooltip.textContent = 'Введите от 12 до 19 цифр!';
-        this.tooltip.classList.remove('hidden');
+        text = 'Введите от 12 до 19 цифр!';
       }
+      this.form.setTooltipText(text);
+      this.form.showTooltip();
     }
   }]);
 }();
