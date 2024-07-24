@@ -1,4 +1,4 @@
-import luhnAlgorithm from '../js/luhnAlgorithm';
+import luhnAlgorithm from '../js/functions/luhnAlgorithm';
 
 test.each([
   ['2201382000000013', true],

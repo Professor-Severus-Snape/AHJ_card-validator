@@ -1,3 +1,5 @@
+import './form.css';
+
 export default class Form {
   // <form class="form">
   //   <label class="form__label visually-hidden" for="cardNumber">Введите номер карты</label>

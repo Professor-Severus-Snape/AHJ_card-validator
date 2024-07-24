@@ -1,4 +1,4 @@
-import checkCardValidity from '../js/checkCardValidity';
+import checkCardValidity from '../js/functions/checkCardValidity';
 
 test.each([
   ['2201382000000013 ', 'MIR'],

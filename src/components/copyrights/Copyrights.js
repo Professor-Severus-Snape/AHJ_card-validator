@@ -1,3 +1,5 @@
+import './copyrights.css';
+
 export default class Copyrights {
   // <address class="copyrights">
   //   <a class="copyrights__link" href="https://github.com/Professor-Severus-Snape">© Professor-Severus-Snape, 2024</a>

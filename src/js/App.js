@@ -1,9 +1,9 @@
-import MainTitle from './MainTitle';
-import Cards from './Cards';
-import Form from './Form';
-import Copyrights from './Copyrights';
-import luhnAlgorithm from './luhnAlgorithm';
-import checkCardValidity from './checkCardValidity';
+import MainTitle from '../components/mainTitle/MainTitle';
+import Cards from '../components/cards/Cards';
+import Form from '../components/form/Form';
+import Copyrights from '../components/copyrights/Copyrights';
+import luhnAlgorithm from './functions/luhnAlgorithm';
+import checkCardValidity from './functions/checkCardValidity';
 
 export default class App {
   constructor() {

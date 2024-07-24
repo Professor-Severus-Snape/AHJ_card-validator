@@ -1,3 +1,5 @@
+import './mainTitle.css';
+
 export default class MainTitle {
   // <h1 class="main-title">Check your credit card number</h1>
   constructor() {

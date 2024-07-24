@@ -1,10 +1,12 @@
-import visa from '../img/card-visa.svg';
-import mastercard from '../img/card-mastercard.svg';
-import americanExpress from '../img/card-americanExpress.svg';
-import discoverCard from '../img/card-discoverCard.svg';
-import jcb from '../img/card-jcb.png';
-import dinersClub from '../img/card-dinersClub.svg';
-import mir from '../img/card-mir.png';
+import './cards.css';
+
+import visa from '../../img/card-visa.svg';
+import mastercard from '../../img/card-mastercard.svg';
+import americanExpress from '../../img/card-americanExpress.svg';
+import discoverCard from '../../img/card-discoverCard.svg';
+import jcb from '../../img/card-jcb.png';
+import dinersClub from '../../img/card-dinersClub.svg';
+import mir from '../../img/card-mir.png';
 
 export default class Cards {
   constructor() {
