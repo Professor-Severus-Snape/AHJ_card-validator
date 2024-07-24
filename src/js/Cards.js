@@ -16,7 +16,7 @@ export default class Cards {
       { type: 'visa', src: visa, alt: 'Visa' },
       { type: 'mastercard', src: mastercard, alt: 'MasterCard' },
       { type: 'americanexpress', src: americanExpress, alt: 'AmericanExpress' },
-      { type: 'discovercard', src: discoverCard, alt: 'DiscoverCard' },
+      { type: 'discover', src: discoverCard, alt: 'Discover' },
       { type: 'jcb', src: jcb, alt: 'JCB' },
       { type: 'dinersclub', src: dinersClub, alt: 'DinersClub' },
       { type: 'mir', src: mir, alt: 'MIR' },

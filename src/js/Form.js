@@ -35,4 +35,53 @@ export default class Form {
       this.buttonElement,
     );
   }
+
+  submitEventListener(callback) {
+    this.element.addEventListener('submit', callback);
+  }
+
+  inputEventListener(callback) {
+    this.inputElement.addEventListener('input', callback);
+  }
+
+  renderInitialState() {
+    this.inputElement.classList.remove('form__input_valid');
+    this.inputElement.classList.remove('form__input_invalid');
+
+    this.tooltipElement.classList.add('hidden');
+    this.tooltipElement.classList.remove('valid');
+  }
+
+  validateInput() {
+    // не позволяем ввести ничего, кроме цифр 0-9:
+    this.inputElement.value = this.inputElement.value.replace(/\D/g, '');
+    // ограничиваем размер поля 19-ю цифрами:
+    this.inputElement.value = this.inputElement.value.slice(0, 19);
+    // разделяем пробелами каждые 4 цифры:
+    this.inputElement.value = this.inputElement.value.split(/([0-9]{4})/).filter((num) => num).join(' ');
+  }
+
+  getCardNumber() {
+    return this.inputElement.value.replaceAll(' ', '');
+  }
+
+  setValidInput() {
+    this.inputElement.classList.add('form__input_valid');
+  }
+
+  setInValidInput() {
+    this.inputElement.classList.add('form__input_invalid');
+  }
+
+  setValidTooltip() {
+    this.tooltipElement.classList.add('valid');
+  }
+
+  setTooltipText(text) {
+    this.tooltipElement.textContent = text;
+  }
+
+  showTooltip() {
+    this.tooltipElement.classList.remove('hidden');
+  }
 }

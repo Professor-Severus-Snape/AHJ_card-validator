@@ -7,94 +7,71 @@ import checkCardValidity from './checkCardValidity';
 
 export default class App {
   constructor() {
-    this.container = document.querySelector('.container');
-
     this.mainTitle = new MainTitle();
-
     this.cards = new Cards();
-
-    this.formConstructor = new Form();
-    this.form = this.formConstructor.element;
-    this.input = this.formConstructor.inputElement;
-    this.tooltip = this.formConstructor.tooltipElement;
-    this.button = this.formConstructor.buttonElement;
-
-    this.copyrights = new Copyrights().element;
+    this.form = new Form();
+    this.copyrights = new Copyrights();
   }
 
   init() {
     this.render();
-    this.checkRights();
+    this.addEventListeners();
+    this.copyrights.checkRights();
   }
 
-  // отрисовка первоначального состояния трекера:
   render() {
+    this.container = document.querySelector('.container');
     this.container.append(this.mainTitle.element);
     this.container.append(this.cards.element);
-    this.container.append(this.form);
-    this.container.append(this.copyrights);
-
-    this.form.addEventListener('submit', this.onFormSubmit.bind(this));
-    this.input.addEventListener('input', this.onInput.bind(this));
+    this.container.append(this.form.element);
+    this.container.append(this.copyrights.element);
   }
 
-  checkRights() {
-    if (this.copyrights.textContent !== '© Professor-Severus-Snape, 2024') {
-      Copyrights.stoleRights();
-    }
+  addEventListeners() {
+    this.form.submitEventListener(this.onFormSubmit.bind(this));
+    this.form.inputEventListener(this.onInput.bind(this));
   }
 
   rerender() {
     this.cards.activateCards();
-    this.input.classList.remove('form__input_valid');
-    this.input.classList.remove('form__input_invalid');
-    this.tooltip.classList.add('hidden');
-    this.tooltip.classList.remove('valid');
+    this.form.renderInitialState();
   }
 
   onInput() {
     this.rerender();
-
-    // не позволяем ввести ничего, кроме цифр 0-9:
-    this.input.value = this.input.value.replace(/\D/g, '');
-
-    // ограничиваем размер поля 19-ю цифрами:
-    this.input.value = this.input.value.slice(0, 19);
-
-    // разделяем пробелами каждые 4 цифры:
-    this.input.value = this.input.value.split(/([0-9]{4})/).filter((num) => num).join(' ');
+    this.form.validateInput();
   }
 
   onFormSubmit(event) {
     event.preventDefault();
 
-    const cardNumber = this.input.value.replaceAll(' ', '');
+    const cardNumber = this.form.getCardNumber();
+    const inputLength = cardNumber.length;
+    let text = '';
 
-    if (!cardNumber.length) {
-      this.tooltip.textContent = 'Введите номер карты!';
-      this.tooltip.classList.remove('hidden');
-    } else if (cardNumber.length > 11) {
+    if (!inputLength) {
+      text = 'Введите номер карты!';
+    } else if (inputLength > 11) {
       if (luhnAlgorithm(cardNumber)) {
         const result = checkCardValidity(cardNumber);
         if (result) {
+          text = result;
           this.cards.deActivateCards(result);
-          this.input.classList.add('form__input_valid');
-          this.tooltip.textContent = result;
-          this.tooltip.classList.remove('hidden');
-          this.tooltip.classList.add('valid');
+          this.form.setValidInput();
+          this.form.setValidTooltip();
         } else {
-          this.input.classList.add('form__input_invalid');
-          this.tooltip.textContent = 'Платежная система не определена!';
-          this.tooltip.classList.remove('hidden');
+          this.form.setInValidInput();
+          text = 'Платежная система не определена!';
         }
       } else {
-        this.input.classList.add('form__input_invalid');
-        this.tooltip.textContent = 'Неверный номер карты!';
-        this.tooltip.classList.remove('hidden');
+        text = 'Неверный номер карты!';
+        this.form.setInValidInput();
       }
     } else {
-      this.tooltip.textContent = 'Введите от 12 до 19 цифр!';
-      this.tooltip.classList.remove('hidden');
+      text = 'Введите от 12 до 19 цифр!';
     }
+
+    this.form.setTooltipText(text);
+    this.form.showTooltip();
   }
 }

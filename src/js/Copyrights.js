@@ -14,8 +14,10 @@ export default class Copyrights {
     this.element.append(this.link);
   }
 
-  static stoleRights() {
-    // eslint-disable-next-line no-console
-    console.warn('This work has been stolen from https://github.com/Professor-Severus-Snape/AHJ_task-tracker');
+  checkRights() {
+    if (this.element.textContent !== '© Professor-Severus-Snape, 2024') {
+      // eslint-disable-next-line no-console
+      console.warn('This work has been stolen from https://github.com/Professor-Severus-Snape/AHJ_task-tracker');
+    }
   }
 }
