@@ -4761,7 +4761,7 @@ var es_object_to_string = __webpack_require__(6099);
 var es_string_iterator = __webpack_require__(7764);
 // EXTERNAL MODULE: ./node_modules/core-js/modules/web.dom-collections.iterator.js
 var web_dom_collections_iterator = __webpack_require__(2953);
-;// CONCATENATED MODULE: ./src/js/MainTitle.js
+;// CONCATENATED MODULE: ./src/components/mainTitle/MainTitle.js
 
 
 
@@ -4778,6 +4778,7 @@ function _createClass(e, r, t) { return r && _defineProperties(e.prototype, r), 
 function _toPropertyKey(t) { var i = _toPrimitive(t, "string"); return "symbol" == _typeof(i) ? i : i + ""; }
 function _toPrimitive(t, r) { if ("object" != _typeof(t) || !t) return t; var e = t[Symbol.toPrimitive]; if (void 0 !== e) { var i = e.call(t, r || "default"); if ("object" != _typeof(i)) return i; throw new TypeError("@@toPrimitive must return a primitive value."); } return ("string" === r ? String : Number)(t); }
 function _classCallCheck(a, n) { if (!(a instanceof n)) throw new TypeError("Cannot call a class as a function"); }
+
 var MainTitle = /*#__PURE__*/_createClass(
 // <h1 class="main-title">Check your credit card number</h1>
 function MainTitle() {
@@ -4803,7 +4804,7 @@ const card_jcb_namespaceObject = __webpack_require__.p + "img/card-jcb.png";
 const card_dinersClub_namespaceObject = __webpack_require__.p + "img/card-dinersClub.svg";
 ;// CONCATENATED MODULE: ./src/img/card-mir.png
 const card_mir_namespaceObject = __webpack_require__.p + "img/card-mir.png";
-;// CONCATENATED MODULE: ./src/js/Cards.js
+;// CONCATENATED MODULE: ./src/components/cards/Cards.js
 function Cards_typeof(o) { "@babel/helpers - typeof"; return Cards_typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (o) { return typeof o; } : function (o) { return o && "function" == typeof Symbol && o.constructor === Symbol && o !== Symbol.prototype ? "symbol" : typeof o; }, Cards_typeof(o); }
 
 
@@ -4821,6 +4822,7 @@ function Cards_defineProperties(e, r) { for (var t = 0; t < r.length; t++) { var
 function Cards_createClass(e, r, t) { return r && Cards_defineProperties(e.prototype, r), t && Cards_defineProperties(e, t), Object.defineProperty(e, "prototype", { writable: !1 }), e; }
 function Cards_toPropertyKey(t) { var i = Cards_toPrimitive(t, "string"); return "symbol" == Cards_typeof(i) ? i : i + ""; }
 function Cards_toPrimitive(t, r) { if ("object" != Cards_typeof(t) || !t) return t; var e = t[Symbol.toPrimitive]; if (void 0 !== e) { var i = e.call(t, r || "default"); if ("object" != Cards_typeof(i)) return i; throw new TypeError("@@toPrimitive must return a primitive value."); } return ("string" === r ? String : Number)(t); }
+
 
 
 
@@ -4909,7 +4911,7 @@ var es_string_replace = __webpack_require__(5440);
 var es_string_split = __webpack_require__(744);
 // EXTERNAL MODULE: ./node_modules/core-js/modules/esnext.string.replace-all.js
 var esnext_string_replace_all = __webpack_require__(2041);
-;// CONCATENATED MODULE: ./src/js/Form.js
+;// CONCATENATED MODULE: ./src/components/form/Form.js
 function Form_typeof(o) { "@babel/helpers - typeof"; return Form_typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (o) { return typeof o; } : function (o) { return o && "function" == typeof Symbol && o.constructor === Symbol && o !== Symbol.prototype ? "symbol" : typeof o; }, Form_typeof(o); }
 
 
@@ -4933,6 +4935,7 @@ function Form_defineProperties(e, r) { for (var t = 0; t < r.length; t++) { var 
 function Form_createClass(e, r, t) { return r && Form_defineProperties(e.prototype, r), t && Form_defineProperties(e, t), Object.defineProperty(e, "prototype", { writable: !1 }), e; }
 function Form_toPropertyKey(t) { var i = Form_toPrimitive(t, "string"); return "symbol" == Form_typeof(i) ? i : i + ""; }
 function Form_toPrimitive(t, r) { if ("object" != Form_typeof(t) || !t) return t; var e = t[Symbol.toPrimitive]; if (void 0 !== e) { var i = e.call(t, r || "default"); if ("object" != Form_typeof(i)) return i; throw new TypeError("@@toPrimitive must return a primitive value."); } return ("string" === r ? String : Number)(t); }
+
 var Form = /*#__PURE__*/function () {
   // <form class="form">
   //   <label class="form__label visually-hidden" for="cardNumber">Введите номер карты</label>
@@ -5026,7 +5029,7 @@ var Form = /*#__PURE__*/function () {
 
 // EXTERNAL MODULE: ./node_modules/core-js/modules/es.string.link.js
 var es_string_link = __webpack_require__(778);
-;// CONCATENATED MODULE: ./src/js/Copyrights.js
+;// CONCATENATED MODULE: ./src/components/copyrights/Copyrights.js
 function Copyrights_typeof(o) { "@babel/helpers - typeof"; return Copyrights_typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (o) { return typeof o; } : function (o) { return o && "function" == typeof Symbol && o.constructor === Symbol && o !== Symbol.prototype ? "symbol" : typeof o; }, Copyrights_typeof(o); }
 
 
@@ -5044,6 +5047,7 @@ function Copyrights_defineProperties(e, r) { for (var t = 0; t < r.length; t++) 
 function Copyrights_createClass(e, r, t) { return r && Copyrights_defineProperties(e.prototype, r), t && Copyrights_defineProperties(e, t), Object.defineProperty(e, "prototype", { writable: !1 }), e; }
 function Copyrights_toPropertyKey(t) { var i = Copyrights_toPrimitive(t, "string"); return "symbol" == Copyrights_typeof(i) ? i : i + ""; }
 function Copyrights_toPrimitive(t, r) { if ("object" != Copyrights_typeof(t) || !t) return t; var e = t[Symbol.toPrimitive]; if (void 0 !== e) { var i = e.call(t, r || "default"); if ("object" != Copyrights_typeof(i)) return i; throw new TypeError("@@toPrimitive must return a primitive value."); } return ("string" === r ? String : Number)(t); }
+
 var Copyrights = /*#__PURE__*/function () {
   // <address class="copyrights">
   //   <a class="copyrights__link" href="https://github.com/Professor-Severus-Snape">© Professor-Severus-Snape, 2024</a>
@@ -5069,7 +5073,7 @@ var Copyrights = /*#__PURE__*/function () {
   }]);
 }();
 
-;// CONCATENATED MODULE: ./src/js/luhnAlgorithm.js
+;// CONCATENATED MODULE: ./src/js/functions/luhnAlgorithm.js
 // функция проверки соответствия последней контрольной цифры номера карты:
 function luhnAlgorithm(input) {
   var parity = input.length % 2;
@@ -5086,7 +5090,7 @@ function luhnAlgorithm(input) {
   }
   return sum % 10 === 0;
 }
-;// CONCATENATED MODULE: ./src/js/checkCardValidity.js
+;// CONCATENATED MODULE: ./src/js/functions/checkCardValidity.js
 
 // проверка карты на принадлежность к определенной платежной системе:
 function checkCardValidity(input) {
