@@ -9,7 +9,7 @@ branches:
 cache: off # кеширование
 
 install:
-  - npm install # установка зависимостей
+  - npm ci # установка зависимостей из package-lock.json
 
 build: off # отключение встроенной в appveyor системы сборки
 
