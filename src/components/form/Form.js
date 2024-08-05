@@ -55,12 +55,22 @@ export default class Form {
   }
 
   validateInput() {
+    // сохраняем начальное положение мигающего курсора:
+    const index = this.inputElement.selectionStart;
+
     // не позволяем ввести ничего, кроме цифр 0-9:
     this.inputElement.value = this.inputElement.value.replace(/\D/g, '');
     // ограничиваем размер поля 19-ю цифрами:
     this.inputElement.value = this.inputElement.value.slice(0, 19);
     // разделяем пробелами каждые 4 цифры:
     this.inputElement.value = this.inputElement.value.split(/([0-9]{4})/).filter((num) => num).join(' ');
+
+    // передвигаем курсор:
+    if (this.inputElement.value[index - 1] === ' ') {
+      this.inputElement.setSelectionRange(index + 1, index + 1);
+    } else {
+      this.inputElement.setSelectionRange(index, index);
+    }
   }
 
   getCardNumber() {
