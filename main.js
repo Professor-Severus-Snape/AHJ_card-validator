@@ -4985,6 +4985,9 @@ var Form = /*#__PURE__*/function () {
   }, {
     key: "validateInput",
     value: function validateInput() {
+      // сохраняем начальное положение мигающего курсора:
+      var index = this.inputElement.selectionStart;
+
       // не позволяем ввести ничего, кроме цифр 0-9:
       this.inputElement.value = this.inputElement.value.replace(/\D/g, '');
       // ограничиваем размер поля 19-ю цифрами:
@@ -4993,6 +4996,13 @@ var Form = /*#__PURE__*/function () {
       this.inputElement.value = this.inputElement.value.split(/([0-9]{4})/).filter(function (num) {
         return num;
       }).join(' ');
+
+      // передвигаем курсор:
+      if (this.inputElement.value[index - 1] === ' ') {
+        this.inputElement.setSelectionRange(index + 1, index + 1);
+      } else {
+        this.inputElement.setSelectionRange(index, index);
+      }
     }
   }, {
     key: "getCardNumber",
