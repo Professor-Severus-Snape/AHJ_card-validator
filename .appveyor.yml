@@ -6,7 +6,9 @@ branches:
   only:
     - main # ветка git
 
-cache: off # кеширование
+cache:
+  - node_modules
+  - .cache
 
 install:
   - npm install # установка зависимостей
