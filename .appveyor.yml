@@ -11,7 +11,7 @@ cache:
   - .cache
 
 install:
-  - npm install # установка зависимостей
+  - npm ci # установка зависимостей
 
 build: off # отключение встроенной в appveyor системы сборки
 
